@@ -5,7 +5,7 @@ package entities
 	public class Player extends Entity
 	{	
 		public var walkSpeed:Number = 200;
-		public var safetyRadius:Number = 128;
+		public var safetyRadius:Number = 256;
 		
 		public function Player(X:Number, Y:Number)
 		{
@@ -65,7 +65,7 @@ package entities
 		
 		override public function draw():void
 		{
-			drawCircleToCamera(x + 0.5 * width, y + 0.5 * height, safetyRadius, 0xffff0000, 2);
+			drawCircleToCamera(position.x, position.y, safetyRadius, 0xff0000, 0.5, 1);
 			super.draw();
 		}
 		

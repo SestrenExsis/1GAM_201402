@@ -1,26 +1,29 @@
 package
 {
-	import org.flixel.*;
 	import flash.display.Graphics;
+	
+	import org.flixel.*;
 	
 	public class Entity extends FlxSprite
 	{	
 		[Embed(source="../assets/images/objects.png")] protected var imgSprites:Class;
 		
 		public var gravity:Number = 800;
+		public var position:FlxPoint;
 		
 		public function Entity(X:Number, Y:Number)
 		{
 			super(X, Y);
-			
+			position = new FlxPoint(x + 0.5 * width, y + 0.5 * height);
 		}
 		
-		public function drawCircleToCamera(X:Number, Y:Number, Radius:Number, Color:uint, Thickness:uint=1):void
+		public function drawCircleToCamera(X:Number, Y:Number, Radius:Number, Color:uint, Alpha:Number, Thickness:uint=1):void
 		{
 			//Draw line
 			var gfx:Graphics = FlxG.flashGfx;
 			gfx.clear();
-			gfx.lineStyle(Thickness, Color);
+			
+			gfx.lineStyle(Thickness, Color, Alpha);
 			gfx.drawCircle(X - FlxG.camera.scroll.x, Y - FlxG.camera.scroll.y, Radius);
 			
 			//Cache line to bitmap
@@ -37,6 +40,8 @@ package
 		{	
 			super.update();
 			
+			position.x = x + 0.5 * width;
+			position.y = y + 0.5 * height;
 		}
 		
 		override public function destroy():void

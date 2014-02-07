@@ -1,9 +1,10 @@
 package screens
 {
 	
-	import org.flixel.*;
-	import entities.Player;
 	import entities.Item;
+	import entities.Player;
+	
+	import org.flixel.*;
 	
 	public class GameScreen extends ScreenState
 	{
@@ -12,7 +13,6 @@ package screens
 		[Embed(source="../assets/maps/testMap.csv", mimeType = "application/octet-stream")] protected var mapLevel1:Class;
 		
 		private var map:FlxTilemap;
-		private var object:Entity;
 		private var objects:FlxGroup;
 		
 		public function GameScreen()
@@ -28,13 +28,17 @@ package screens
 			FlxG.bgColor = 0xff5c94fc;
 			
 			objects = new FlxGroup();
-			object = new Player(0, 64);
+			Item.group = new FlxGroup();
+			Item.group = objects;
+			
+			var player:Player = new Player(0, 64);
+			objects.add(player);
+			
+			var object:Item = new Item(48, 64, 1, player);
 			objects.add(object);
-			object = new Item(48, 64, "fox");
+			object = new Item(200, 64, 2, player);
 			objects.add(object);
-			object = new Item(96, 64, "beans");
-			objects.add(object);
-			object = new Item(144, 64, "goose");
+			object = new Item(400, 64, 3, player);
 			objects.add(object);
 			
 			map = new FlxTilemap();
