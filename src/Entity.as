@@ -7,6 +7,8 @@ package
 	public class Entity extends FlxSprite
 	{	
 		[Embed(source="../assets/images/objects.png")] protected var imgSprites:Class;
+
+		public static var group:FlxGroup;
 		
 		public var gravity:Number = 800;
 		public var position:FlxPoint;

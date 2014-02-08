@@ -28,8 +28,8 @@ package screens
 			FlxG.bgColor = 0xff5c94fc;
 			
 			objects = new FlxGroup();
-			Item.group = new FlxGroup();
-			Item.group = objects;
+			Entity.group = new FlxGroup();
+			Entity.group = objects;
 			
 			var player:Player = new Player(0, 64);
 			objects.add(player);

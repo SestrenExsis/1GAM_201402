@@ -14,7 +14,6 @@ package entities
 		
 		public static const itemNames:Array = ["Farmer","Fox","Beans","Goose"];
 		public static const itemPreys:Array = [-1, 3, -1, 2];
-		public static var group:FlxGroup;
 		
 		public var walkSpeed:Number = 200;
 		protected var _type:uint = 0;
