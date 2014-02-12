@@ -16,6 +16,7 @@ package entities
 			addAnimation("idle", [0]);
 			addAnimation("walk", [0]);
 			addAnimation("jump", [0]);
+			addAnimation("pickup", [0]);
 			
 			acceleration.y = gravity;
 			play("idle");
