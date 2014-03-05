@@ -1,16 +1,21 @@
 package
 {
+	//import com.increpare.bfxr.Bfxr;
+	import com.increpare.bfxr.*;
+	import com.increpare.bfxr.synthesis.Synthesizer.SfxrParams;
+	
 	import org.flixel.*;
 	
 	import screens.GameScreen;
 	import screens.MenuScreen;
-	
+		
 	public class ScreenState extends FlxState
 	{
-		
 		public static var overlay:FlxSprite;
 		public static var infoTextBackdrop:FlxSprite;
 		public static var infoText:FlxText;
+		
+		private var soundBank:SoundBank;
 		
 		public function ScreenState()
 		{
@@ -21,12 +26,16 @@ package
 		{
 			super.create();
 			FlxG.flash(0xff000000, 0.5);
+			
+			soundBank = new SoundBank();
+			
 		}
 		
 		override public function update():void
 		{	
 			super.update();
 			
+			soundBank.update();
 		}
 		
 		public static function playRandomSound(Sounds:Array, VolumeMultiplier:Number = 1.0):void
